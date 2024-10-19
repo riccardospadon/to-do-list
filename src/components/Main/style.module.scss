@@ -1,0 +1,68 @@
+.button {
+    font-size: 1.7rem;
+    font-weight: bold;
+    padding: 10px, 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5 ease;
+}
+
+.addButton {
+    background-color:#74e27d;
+    margin-left: 1rem;
+}
+
+.addButton:hover {
+    background-color: #45b749;
+}
+
+.deleteButton {
+    background-color: #ff6b6b;
+    padding: 8px 12px;
+    margin-left: 10px;
+    font-size: 1.4rem;
+}
+
+.deleteButton:hover {
+    background-color: #cc4242;
+}
+
+.input{
+    font-size: 1.6rem;
+    padding: 1px;
+    border: 2px solid #a7a7a7;
+    border-radius: 5px;
+    color: black;
+}
+
+.ordinaryList {
+    padding: 0;
+}
+
+.ordinaryList li {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 15px;
+    background-color: #fcf7f7;
+    margin-bottom: 1rem;
+    border: 3px solid #ccc;
+    display: flex;
+    align-items: center;
+}
+
+.textList {
+    flex: 1;
+}
+
+.moveUp {
+    padding: 8px 12px;
+    margin-left: 10px;
+    font-size: 1.4rem;
+}
+
+.moveDown {
+    padding: 8px 12px;
+    margin-left: 10px;
+    font-size: 1.4rem;
+}
