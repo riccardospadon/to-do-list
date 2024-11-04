@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import styles from "./style.module.scss";
 import cn from "classnames";
-import { ChevronDoubleDown, ChevronDoubleUp, Trash3Fill } from "react-bootstrap-icons";
+import { ChevronDoubleDown, ChevronDoubleUp, Trash3Fill, PlusLg } from "react-bootstrap-icons";
 
 export default function Main() {
   const [tasks, setTasks] = useState([]);
@@ -30,8 +30,9 @@ export default function Main() {
   function moveTaskUp(index) {
     if(index > 0) {
         const updatedTasks = [...tasks];
-        [updatedTasks[index] = updatedTasks[index - 1]] =
-        [updatedTasks[index - 1], updatedTasks[index]]
+        const temp = updatedTasks[index]
+        updatedTasks[index] = updatedTasks[index - 1]
+        updatedTasks[index - 1] = temp
         setTasks(updatedTasks);
     }  
   }
@@ -40,13 +41,15 @@ export default function Main() {
   function moveTaskDown(index) {
     if(index < tasks.length - 1) {
         const updatedTasks = [...tasks];
-        [updatedTasks[index] = updatedTasks[index + 1]] =
-        [updatedTasks[index + 1], updatedTasks[index]]
+        const temp = updatedTasks[index]
+        updatedTasks[index] = updatedTasks[index + 1]
+        updatedTasks[index + 1] = temp
         setTasks(updatedTasks);
     }
   }
 
   /* TODO: Add a function for tasks already done and move down in another section called "done" */
+  
   
   /* TODO: Add transitions when you move a task up/down or when its done */
 
@@ -61,7 +64,7 @@ export default function Main() {
           onChange={handleInputChange}
         />
         <button className={cn(styles.addButton, styles.button)} onClick={addTask}>
-          Add
+          <PlusLg />
         </button>
       </Container>
       <Container className="mt-3">
