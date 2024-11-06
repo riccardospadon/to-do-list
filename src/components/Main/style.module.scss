@@ -1,7 +1,5 @@
 .button {
-    font-size: 1.2rem;
     font-weight: bold;
-    padding: 10px, 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -9,8 +7,9 @@
 }
 
 .addButton {
+    font-size: 1rem;
     background-color:#74e27d;
-    margin-left: 1rem;
+    color: white;
 }
 
 .addButton:hover {
@@ -21,19 +20,20 @@
     background-color: #ff6b6b;
     padding: 8px 12px;
     margin-left: 10px;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    color: #fcf7f7;
 }
 
 .deleteButton:hover {
     background-color: #cc4242;
+    color: #fcf7f7d2;
 }
 
 .input{
     font-size: 1rem;
-    padding: 1px;
+    padding: 1em;
     border: 2px solid #a7a7a7;
     border-radius: 5px;
-    color: black;
 }
 
 .ordinaryList {
@@ -41,7 +41,7 @@
 }
 
 .ordinaryList li {
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: bold;
     padding: 15px;
     background-color: #fcf7f7;
@@ -58,11 +58,38 @@
 .moveUp {
     padding: 8px 12px;
     margin-left: 10px;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    background-color: #aaaaaa;
+    color: #fcf7f7;
+}
+
+.moveUp:hover {
+    background-color: #808080;
+    color: #fcf7f7d2;
 }
 
 .moveDown {
     padding: 8px 12px;
     margin-left: 10px;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    background-color: #aaaaaa;
+    color: #fcf7f7;
+}
+
+.moveDown:hover {
+    background-color: #808080;
+    color: #fcf7f7d2;
+}
+
+.check {
+    background-color:#74e27d;
+    padding: 8px 12px;
+    margin-left: 10px;
+    font-size: 1rem;
+    color: #fcf7f7;
+}
+
+.check:hover {
+    background-color: #45b749;
+    color: #fcf7f7d2;
 }
