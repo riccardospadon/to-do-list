@@ -56,6 +56,7 @@ export default function Main() {
   return (
     <>
       <Container className="mt-5">
+        <h1 className="mb-5">TO DO LIST</h1>
         <input
         className={cn(styles.input)}
           type="text"
