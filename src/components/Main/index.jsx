@@ -8,11 +8,16 @@ import {
   Trash3Fill,
   PlusLg,
   CheckAll,
+  ArrowCounterclockwise,
+  Star,
+  StarFill,
 } from "react-bootstrap-icons";
 
 export default function Main() {
   const [tasks, setTasks] = useState(["Gym", "Go to work"]);
   const [newTask, setNewTask] = useState("");
+  const [doneTasks, setDoneTasks] = useState([]);
+  const [importantTasks, setImportantTasks] = useState([]);
 
   function handleInputChange(event) {
     setNewTask(event.target.value);
@@ -54,10 +59,32 @@ export default function Main() {
     }
   }
 
-  /* TODO: Add a function for tasks already done and move down in another section called "done" */
-  function taskDone(index) {}
+ /* function for tasks already done and move down in another section called "done" */
+  function taskDone(index) {
+    const taskToMove = tasks[index];
+    setDoneTasks((dt) => [...dt, taskToMove]);
+    deleteTask(index);
+  }
 
-  /* TODO: Add transitions when you move a task up/down or when its done */
+
+  function undoTaskDone(index) {
+    const taskToMoveBack = doneTasks[index];
+    setTasks((t) => [...t, taskToMoveBack]);
+    setDoneTasks((dt) => dt.filter((_, i) => i!== index));
+  }
+ 
+  function deleteDoneTask(index) {
+    setDoneTasks((dt) => dt.filter((_, i) => i!== index));
+  }
+
+  function toggleImportant(index){
+    const task = doneTasks[index];
+    setImportantTasks((it) => {
+      return it.includes(task)
+      ? it.filter((t) => t !== task)
+      : [...it, task];
+    })
+  }
 
   return (
     <>
@@ -120,7 +147,29 @@ export default function Main() {
       </Container>
 
       <Container className="mt-5">
-        <h1>DONE</h1>
+        <h1 className="mb-5">DONE</h1>
+        <ol className={cn(styles.ordinaryList)}>
+          {doneTasks.map((task, index) => (
+            <li key={index} className={cn(styles.doneItem)}>
+              <span className={cn(styles.textList)}>{task}</span>
+              <button
+                className={cn(styles.deleteButton, styles.button)}
+                onClick={() => deleteDoneTask(index)}
+              >
+                <Trash3Fill />
+              </button>
+              <button className={cn(styles.undoButton, styles.button)} onClick={() => undoTaskDone(index)}>
+                <ArrowCounterclockwise />
+              </button>
+              <button
+                className={cn(styles.importantButton, styles.button)}
+                onClick={() => toggleImportant(index)}
+              >
+                {importantTasks.includes(task) ? <StarFill /> : <Star />}
+              </button>
+            </li>
+          ))}
+        </ol>
       </Container>
     </>
   );

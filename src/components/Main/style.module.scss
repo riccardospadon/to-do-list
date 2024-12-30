@@ -93,3 +93,32 @@
     background-color: #45b749;
     color: #fcf7f7d2;
 }
+
+.doneItem {
+    list-style-type: none;
+    padding: 0;
+    text-decoration: line-through;
+    color: rgb(48, 48, 48);
+}
+
+.undoButton {
+    padding: 8px 12px;
+    margin-left: 10px;
+    font-size: 1rem;
+    background-color: #f0ad4e;
+    color: #fcf7f7;
+}
+
+.importantButton {
+    padding: 8px 12px;
+    margin-left: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f39c12;
+    transition: color 0.3s ease, transform 0.3s ease;
+
+    svg {
+        fill: currentColor;
+        transition: fill 0.3s ease;
+    }
+}
